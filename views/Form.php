@@ -1,8 +1,8 @@
-<?php require_once "../views/header.php" ?>
+<?php require_once "./views/header.php" ?>
 <div class="register-container">
     <h2>Créer un compte</h2>
 
-    <form action="../controllers/UserController.php" method="POST">
+    <form action="index.php?controller=personne&action=create" method="POST">
 
         <div class="form-row">
             <div class="form-group">
@@ -46,4 +46,4 @@
 </div>
 
 
-<?php require_once "../views/footer.php" ?>
+<?php require_once "./views/footer.php" ?>
