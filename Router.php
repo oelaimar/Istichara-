@@ -4,6 +4,7 @@ class Router{
     private array $controllers=[
         "avocat" => AvocatController::class,
         "hussier" => HussierController::class,
+        "personne"=>PersonneController::class,
         "ville" => VilleController::class
     ];
 
@@ -21,6 +22,6 @@ class Router{
             throw new \Exception('Methode intrrouvable');
 
         }
-        $controllerClasse->$action;
+        $controllerClasse->$action();
     }    
 }
