@@ -1,4 +1,4 @@
-<?php require_once "./views/header.php" ?>
+<?php require_once "./header.php" ?>
 <div class="register-container">
     <h2>Créer un compte</h2>
 
@@ -46,4 +46,4 @@
 </div>
 
 
-<?php require_once "./views/footer.php" ?>
+<?php require_once "./footer.php" ?>
