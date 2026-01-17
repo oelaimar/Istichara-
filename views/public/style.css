@@ -1,0 +1,260 @@
+:root{
+  --blue:#0F2A44;
+  --gold:#C9A24D;
+  --light:#F9FAFC;
+  --gray:#E5E7EB;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter, Arial;
+}
+
+body{
+  background:var(--light);
+}
+
+/* HEADER */
+header{
+  background:var(--blue);
+  color:white;
+  padding:20px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:26px;
+  font-weight:bold;
+  color:var(--gold);
+}
+
+nav a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+/* BUTTON */
+.btn{
+  background:var(--blue);
+  color:white;
+  padding:12px 25px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  display:inline-block;
+  margin-top:10px;
+}
+
+/* HERO */
+.hero{
+  margin-top: 5rem;
+  padding:80px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:40px;
+  color:var(--blue);
+}
+
+.hero p{
+  margin:20px 0;
+  color:#555;
+}
+
+
+/* =======================
+   FORM CONTAINER
+======================= */
+.register-container{
+    max-width:1100px;
+    margin:60px auto;
+    background:#fff;
+    padding:45px;
+    border-radius:14px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.register-container h2{
+    text-align:center;
+    font-size:32px;
+    color:var(--blue);
+    margin-bottom:45px;
+}
+
+/* =======================
+   FORM ROWS
+======================= */
+.form-row{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:25px;
+    margin-bottom:35px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    font-weight:600;
+    margin-bottom:8px;
+    color:var(--text);
+}
+
+.form-group input{
+    padding:14px;
+    border:1px solid var(--gray);
+    border-radius:8px;
+    font-size:15px;
+    transition:0.2s;
+}
+
+.form-group input:focus{
+    outline:none;
+    border-color:var(--blue);
+}
+
+/* =======================
+   SECTION LABEL
+======================= */
+.section-label{
+    display:block;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:15px;
+}
+
+/* =======================
+   ROLE SELECT
+======================= */
+.role-row{
+    display:flex;
+    justify-content: space-evenly;
+    gap:70px;
+    margin-bottom:35px;
+}
+
+.role-row label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:600;
+    cursor:pointer;
+    color:var(--text);
+}
+
+.role-select input{
+    accent-color: var(--blue);
+    cursor:pointer;
+}
+
+/* =======================
+   EXTRA FIELDS
+======================= */
+#extraFields{
+    padding:25px;
+    background:var(--light);
+    border:1px solid var(--gray);
+    border-radius:10px;
+    margin-bottom:40px;
+}
+
+.extra-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:25px;
+}
+
+.extra-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.extra-group label{
+    font-weight:600;
+    margin-bottom:8px;
+    color:var(--text);
+}
+
+.extra-group input,
+.extra-group select{
+    padding:14px;
+    border:1px solid var(--gray);
+    border-radius:8px;
+    font-size:15px;
+}
+
+.extra-group input:focus,
+.extra-group select:focus{
+    outline:none;
+    border-color:var(--blue);
+}
+
+/* =======================
+   SUBMIT BUTTON
+======================= */
+.submit-btn{
+    width:100%;
+    padding:18px;
+    background:var(--blue);
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.submit-btn:hover{
+    background:#0b1f33;
+}
+
+
+/* DASHBOARD */
+.dashboard{
+  display:flex;
+}
+
+.sidebar{
+  width:220px;
+  height:100vh;
+  background:var(--blue);
+  color:white;
+  padding:20px;
+}
+
+.sidebar a{
+  display:block;
+  margin:15px 0;
+  cursor:pointer;
+}
+
+.content{
+  flex:1;
+  padding:40px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 10px 20px rgba(0,0,0,.05);
+  margin-bottom:20px;
+}
+
+/* HIDE */
+.page{
+  display:none;
+}
+.active{
+  display:block;
+}
