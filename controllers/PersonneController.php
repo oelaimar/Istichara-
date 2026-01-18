@@ -21,7 +21,7 @@ class PersonneController{
             $name = $_POST['name'];
             $email =$_POST['email'];
             $phone =$_POST['phone'];
-            $villeId = (int) $_POST['ville'];
+            $city_id = (int) $_POST['ville'];
             $role = $_POST['role'];
             
             
@@ -29,21 +29,21 @@ class PersonneController{
                 'name' => $name,
                 'email' => $email,
                 'phone' => $phone,
-                'ville_id' => $villeId  
+                'city_id' => $city_id  
             ];
             
             $success = false;
             if ($role === 'avocat') {
-                $data['exp_years'] = (int) $_POST['expYears'];
+                $data['years_of_experiences'] = (int) $_POST['expYears'];
                 $data['hourly_rate'] = (float) $_POST['hourlyRate'];
-                $data['specialisation'] = $_POST['specialisation'];
+                $data['specialization'] = $_POST['specialisation'];
                 $data['consultation_online'] = isset($_POST['consultationOnline']) ? 1 : 0;
                 
                 // insertion en lawyer
                 $repo = new AvocatRepo();
                 $success = $repo->create($data);
             } elseif ($role === 'hussier') {
-                $data['exp_years'] = (int) $_POST['expYears'];
+                $data['years_of_experiences'] = (int) $_POST['expYears'];
                 $data['hourly_rate'] = (float) $_POST['hourlyRate'];
                 $data['type'] = $_POST['type'];
                 
@@ -57,13 +57,13 @@ class PersonneController{
             
             // Gestion du résultat
             if ($success) {
-                header('Location: index.php?controller=personne&action=afficher');
+                header('Location: index.php?url=dashboard');
                 exit;
             } else {
                 echo "Erreur lors de l'enregistrement.";
             }
         } else {
-            header('Location: index.php?controller=personne&action=createForm');
+            header('Location: index.php?url=add');
             exit;
         }
     }
