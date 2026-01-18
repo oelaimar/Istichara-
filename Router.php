@@ -1,11 +1,16 @@
 <?php
 
+use controllers\DashboardController;
+use controllers\PersonneController;
+use controllers\VilleController;
+
 class Router{
     private array $controllers=[
         "avocat" => AvocatController::class,
         "hussier" => HussierController::class,
+        "dashboard"=>DashboardController::class,
         "personne"=>PersonneController::class,
-        "ville" => VilleController::class
+        "ville" =>VilleController::class
     ];
 
     public function dispatch(){
