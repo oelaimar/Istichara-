@@ -25,11 +25,27 @@
         </div>
     </div>
     
-    <!-- Répartition par ville (Graphique) -->
+    <!-- Répartition par ville (Cartes) -->
     <section>
         <h2>Répartition des professionnels par ville</h2>
-        <div style="position: relative; height:400px; width:100%">
-            <canvas id="cityChart"></canvas>
+        <div class="city-grid">
+            <?php foreach ($statsCity as $city): ?>
+                <div class="city-card">
+                    <h3><?= htmlspecialchars($city['ville']) ?></h3>
+                    <div class="city-stats">
+                        <div class="city-stat">
+                            <span class="icon">⚖️</span>
+                            <span class="count"><?= $city['avocats'] ?></span>
+                            <span class="label">Avocats</span>
+                        </div>
+                        <div class="city-stat">
+                            <span class="icon">📄</span>
+                            <span class="count"><?= $city['huissiers'] ?></span>
+                            <span class="label">Huissiers</span>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
     </section>
     
