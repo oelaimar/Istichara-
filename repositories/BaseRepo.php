@@ -4,8 +4,8 @@ use helper\Database;
 use PDO;
 
 abstract class BaseRepo{
-    private string $table;
-    private PDO $conn;
+    protected string $table;
+    protected PDO $conn;
 
     public function initCrud()
     {

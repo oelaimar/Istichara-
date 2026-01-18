@@ -4,5 +4,5 @@ use repositories\BaseRepo;
 use models\Ville;
 
 class VilleRepo extends BaseRepo{
-    private string $table="city";
+    public string $table="city";
 }
