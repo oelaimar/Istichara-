@@ -1,9 +1,8 @@
-<?php require_once "./header.php";
-?>
+<?php require_once __DIR__ . '/header.php'; ?>
 <div class="register-container">
     <h2>Créer un compte</h2>
 
-    <form action="index.php?controller=personne&action=create" method="POST">
+    <form action="index.php?url=create" method="POST">
 
         <div class="form-row">
             <div class="form-group">
@@ -20,8 +19,8 @@
                 <label>Téléphone</label>
                 <input type="text" name="phone" placeholder="+212 ..." required>
             </div>
-        </div>
-        <div class="form-group">
+
+            <div class="form-group">
                 <label>Ville</label>
                 <select name="ville" required>
                     <option value="">-- Choisir --</option>
@@ -57,4 +56,4 @@
 </div>
 
 
-<?php require_once "./footer.php" ?>
+<?php require_once __DIR__ . '/footer.php'; ?>
