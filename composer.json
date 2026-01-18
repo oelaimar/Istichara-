@@ -11,5 +11,8 @@
             "email": "safaachtaoui@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^7.0",
+        "twig/twig": "^3.22"
+    }
 }
