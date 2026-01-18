@@ -1,15 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-    <?php require_once 'views/header.php'; ?>
+// $router=new Router();
+// $router->dispatch();
 
-<!-- HOME -->
-<div id="home" class="page active">
-  <div class="hero">
-    <h1>Conseil juridique en ligne</h1>
-    <p>Connectez-vous à des avocats certifiés au Maroc</p>
-    <a class="btn" href="views/Form.php">Consulter un avocat/hussier </a>
-  </div>
-</div>
+spl_autoload_register(function ($class) {
+    $path = __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
+    if (file_exists($path)) {
+        require_once $path;
+    }
+});
 
-<?php require_once 'views/footer.php'; ?>
+$url = $_GET['url'] ?? 'home';
+
+switch ($url) {
+    case 'istichara':
+        require 'index.php';
+        break;
+    case 'add':
+        $controller = new controllers\PersonneController();
+        $controller->createForm();
+        break;
+    case 'home':
+        require 'views/home.php';
+        break;    
+    default:
+        echo "Page non trouvée";
+}
