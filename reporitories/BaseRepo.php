@@ -22,7 +22,7 @@ abstract class BaseRepo{
         $columns=implode(",",array_keys($data));
         $placeholders=":" . implode(",:",array_keys($data));
 
-        $stmt=$this->conn->prepare("INSET INTO {$this->table}($columns) VALUES($placeholders)");
+        $stmt=$this->conn->prepare("INSERT INTO {$this->table}($columns) VALUES($placeholders)");
         return $stmt->execute($data);
     }
 
@@ -31,6 +31,7 @@ abstract class BaseRepo{
     public function affichage():array
     {
        $stmt=$this->conn->prepare("SELECT * FROM {$this->table}");
+       $stmt->execute();
        $result=$stmt->fetchALL();
        return $result;
     }
@@ -52,8 +53,8 @@ abstract class BaseRepo{
         
         foreach($data as $key=>$value){
             $fields.= "$key=:$key,";
-            $fields=rtrim($fields,",");
-        }
+            }
+        $fields=rtrim($fields,",");
         $data["id"]=$id;
 
         
