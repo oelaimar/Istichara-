@@ -2,8 +2,17 @@
     "name": "youcode/istichara",
     "autoload": {
         "psr-4": {
-            "Istichara\\": "src/"
-        }
+            "Istichara\\": "src/",
+            "controllers\\": "controllers/",
+            "models\\": "models/",
+            "repositories\\": "repositories/",
+            "helper\\": "helper/",
+            "interfaces\\": "interfaces/",
+            "services\\": "services/"
+        },
+        "classmap": [
+            "Router.php"
+        ]
     },
     "authors": [
         {
