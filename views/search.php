@@ -1,10 +1,15 @@
-<?php require_once __DIR__ . '/header.php'; ?>
+<?php
+
+use models\Personne;
+
+ require_once __DIR__ . '/header.php'; ?>
 
 <div class="dashboard-container">
     <h1>Rechercher un professionnel</h1>
 
     <form action="index.php" method="GET" class="search-form" style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 3rem;">
-        <input type="hidden" name="url" value="search">
+        <input type="hidden" name="controller" value="search">
+        <input type="hidden" name="action" value="index">
         
         <div class="form-row" style="margin-bottom: 0;">
             <div class="form-group">
@@ -70,7 +75,11 @@
     <?php elseif (isset($_GET['nom'])): ?>
         <p style="text-align: center; font-size: 1.2rem; color: #6B7280;">Aucun professionnel trouvé.</p>
     <?php endif; ?>
+        
 
+   
+
+        
 </div>
 
 <?php require_once __DIR__ . '/footer.php'; ?>
