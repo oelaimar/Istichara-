@@ -8,7 +8,7 @@
   <div class="hero">
     <h1>Conseil juridique en ligne</h1>
     <p>Connectez-vous à des avocats certifiés au Maroc</p>
-    <a class="btn" href="index.php?url=add">Consulter un avocat/hussier </a>
+    <a class="btn" href="index.php?controller=personne&action=createForm">Consulter un avocat/hussier </a>
   </div> 
 </div>
 

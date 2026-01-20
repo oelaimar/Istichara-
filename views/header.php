@@ -11,10 +11,11 @@
 <header>
   <div class="logo">ISTICHARA ⚖️</div>
   <nav>
-    <a href="./home.php">Accueil</a>
-    <a href="./Dashboard.php">Dashboard</a>
+    <a href="index.php?controller=home&action=home">Accueil</a>
+    <a href="index.php?controller=dashboard&action=dashboard">Dashboard</a>
     <a href="./LoginForm.php">Connexion</a>
-    <a href="index.php?url=search" class="search-icon" title="Rechercher">🔍</a>
+    <a href="index.php?controller=search&action=index" class="search-icon" title="Rechercher">🔍</a>
+  </nav>
   </nav>
 </header>
 

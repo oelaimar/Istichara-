@@ -3,25 +3,30 @@
 use controllers\DashboardController;
 use controllers\PersonneController;
 use controllers\VilleController;
-
+use controllers\AvocatController;
+use controllers\HussierController;
+use controllers\HomeController;
+use controllers\SearchController;
 class Router{
-    private array $controllers=[
+    private static array $controllers=[
         "avocat" => AvocatController::class,
         "hussier" => HussierController::class,
         "dashboard"=>DashboardController::class,
         "personne"=>PersonneController::class,
-        "ville" =>VilleController::class
+        "ville" =>VilleController::class,
+        "home"=> HomeController::class,
+        "search" => SearchController::class
     ];
 
-    public function dispatch(){
-        $controllerKey=$_GET["controller"];
-        $action=$_GET["action"];
+    public static function dispatch(){
+        $controllerKey=$_GET["controller"] ?? 'home'; 
+        $action=$_GET["action"] ?? 'home';
 
-        if(!isset($this->controllers[$controllerKey])){
+        if(!isset(self::$controllers[$controllerKey])){
             throw new \Exception('Controller intrrouvable');
         }
 
-        $controllerClasse=new $this->controllers[$controllerKey];
+        $controllerClasse=new self::$controllers[$controllerKey];
 
         if(!method_exists($controllerClasse,$action)){
             throw new \Exception('Methode intrrouvable');
