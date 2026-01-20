@@ -4,7 +4,6 @@ namespace models;
 
 abstract class Personne{
     public function __construct(private string $name,
-                                private string $email,
                                 private string $phone,
                                 private ?int $id=null 
                                 ) 
@@ -15,11 +14,6 @@ abstract class Personne{
     public function setName($name):void
     {
         $this->name=$name;
-    }
-
-    public function setEmail($email):void
-    {
-        $this->email=$email;
     }
 
     public function setPhone($phone):void
@@ -36,12 +30,6 @@ abstract class Personne{
     public function getName():string
     {
         return $this->name;
-    }
-
-
-    public function getEmail():string
-    {
-        return $this->email;
     }
 
 
