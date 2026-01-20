@@ -16,13 +16,11 @@ class SearchController {
         $avocats = [];
         $huissiers = [];
 
-        if ($keyword || $cityId) {
-            $avocatRepo = new AvocatRepo();
-            $hussierRepo = new HussierRepo();
+        $avocatRepo = new AvocatRepo();
+        $hussierRepo = new HussierRepo();
 
-            $avocats = $avocatRepo->search($keyword, $cityId);
-            $huissiers = $hussierRepo->search($keyword, $cityId);
-        }
+        $avocats = $avocatRepo->search($keyword, $cityId);
+        $huissiers = $hussierRepo->search($keyword, $cityId);
 
         require_once __DIR__ . '/../views/search.php';
     }
