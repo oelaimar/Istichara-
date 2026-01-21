@@ -10,28 +10,13 @@ enum Specialisation:string
     case Famille="famille";
     case Affaires="affaires";
 }
-class Avocat extends Personne{
-    public function __construct(string $name,
-                                string $email, 
-                                string $phone, 
-                                private int $expYears,
-                                private float $hourlyRate,
-                                private Specialisation $specialisation,
-                                private bool $consultationOnline,  
-                                ?int $id = null)
+class Avocat extends Profetionnel{
+    public function __construct(string $name, string $phone, float $hourlyRate, int $expYears, string $document,private Specialisation $specialisation,private bool $consultationOnline, ?int $id = null)
     {
-        parent::__construct($name, $email, $phone, $id);
+        parent::__construct($name, $phone, $hourlyRate, $expYears, $document, $id);
     }
 
-    public function setExpYears(int $exp_years):void
-    {
-        $this->expYears=$exp_years;
-    }
-
-    public function setHourlyRate(float $hourly_rate):void
-    {
-        $this->hourlyRate=$hourly_rate;
-    }
+    
 
     public function setSpecialisation(Specialisation $specialisation): void
     {
@@ -43,13 +28,7 @@ class Avocat extends Personne{
         $this->consultationOnline = $consultationOnline;
     }
 
-    public function getExpYears(): int {
-        return $this->expYears;
-    }
-
-    public function getHourlyRate(): float {
-        return $this->hourlyRate;
-    }
+    
 
     public function getSpecialisation(): Specialisation {
         return $this->specialisation;

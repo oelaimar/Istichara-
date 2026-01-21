@@ -25,17 +25,26 @@
         </div>
     </div>
     
-    <!-- Répartition par ville (Cartes) -->
+    <!-- Répartition par ville (graphe) -->
     <section>
         <h2>Répartition des professionnels par ville</h2>
+        <div style="height:400px;">
+            <canvas id="cityChart"></canvas>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+    
     const statsData = <?= json_encode(array_values($statsCity)); ?>;
+    console.log(statsData);
+    
     
     const labels = statsData.map(item => item.ville);
     const avocatsData = statsData.map(item => item.avocats);
     const huissiersData = statsData.map(item => item.huissiers);
-
+    console.log(labels);
+    console.log(avocatsData);
+    console.log(huissiersData);
+    
     const ctx = document.getElementById('cityChart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',
