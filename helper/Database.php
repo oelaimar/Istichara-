@@ -5,7 +5,7 @@ use PDO;
 
 class Database implements DatabaseInterface{
     private static string $host="ep-cold-mountain-ah25jfw1-pooler.c-3.us-east-1.aws.neon.tech";
-    private static string $db_name="Istichara_tree";
+    private static string $db_name="Istichara";
     private static string $user="neondb_owner";
     private static string $mdp="npg_umhYVWbnKC90";
 
