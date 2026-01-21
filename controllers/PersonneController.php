@@ -15,7 +15,7 @@ class PersonneController{
         
         require_once __DIR__ . '/../views/Form.php';  
     }
-    
+
     // apres la soumission
     public function create() {
         if (isset($_POST['submit'])){ 
