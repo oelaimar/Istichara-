@@ -43,7 +43,7 @@ class RegisterController{
             }
 
             //create Client
-            $client = new Client($user_id, $name, $email, $phone, $city);
+            $client = new Client($user_id, $name, $phone, $city);
             $clientRepo = new ClientRepo();
             $clientcreated = $clientRepo->create($client);
 
