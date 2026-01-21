@@ -1,48 +1,48 @@
 CREATE TABLE city(
-id INT PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(150) NOT NULL
+                     id INT PRIMARY KEY AUTO_INCREMENT,
+                     name VARCHAR(150) NOT NULL
 );
 CREATE TABLE Lawyer(
-id INT PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(150) NOT NULL,
-email VARCHAR(250) NOT NULL UNIQUE,
-phone VARCHAR(30) NOT NULL UNIQUE,
-years_of_experiences INT,
-hourly_rate DECIMAL (10,2),
-specialization ENUM('Droit pénal', 'Civil', 'Famille', 'Affaires') NOT NULL,
-consultation_online bool,
-city_id INT,
-FOREIGN KEY (city_id) REFERENCES city(id)
+                       id INT PRIMARY KEY AUTO_INCREMENT,
+                       name VARCHAR(150) NOT NULL,
+                       email VARCHAR(250) NOT NULL UNIQUE,
+                       phone VARCHAR(30) NOT NULL UNIQUE,
+                       years_of_experiences INT,
+                       hourly_rate DECIMAL (10,2),
+                       specialization ENUM('Droit pénal', 'Civil', 'Famille', 'Affaires') NOT NULL,
+                       consultation_online bool,
+                       city_id INT,
+                       FOREIGN KEY (city_id) REFERENCES city(id)
 );
 CREATE TABLE hussier(
-    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    name VARCHAR(150) NOT NULL,
-    email VARCHAR(250) NOT NULL UNIQUE,
-    phone VARCHAR(30) NOT NULL UNIQUE,
-    years_of_experiences int,
-    hourly_rate  DECIMAL(10, 2) ,
-    type ENUM('Signification', 'Exécution', 'Constats'),
-    city_id INT,
-    FOREIGN KEY (city_id) REFERENCES city(id)
-    );
-
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `email` VARCHAR(250) NOT NULL UNIQUE,
-  `password` VARCHAR(255) NOT NULL,
-  `role` ENUM('admin','client','lawyer','hussier') NOT NULL,
-  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                        id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+                        name VARCHAR(150) NOT NULL,
+                        email VARCHAR(250) NOT NULL UNIQUE,
+                        phone VARCHAR(30) NOT NULL UNIQUE,
+                        years_of_experiences int,
+                        hourly_rate  DECIMAL(10, 2) ,
+                        type ENUM('Signification', 'Exécution', 'Constats'),
+                        city_id INT,
+                        FOREIGN KEY (city_id) REFERENCES city(id)
 );
 
-ALTER TABLE `lawyer` 
-ADD COLUMN `user_id` INT AFTER `id`;
+CREATE TABLE IF NOT EXISTS `user` (
+                                      `id` INT AUTO_INCREMENT PRIMARY KEY,
+                                      `email` VARCHAR(250) NOT NULL UNIQUE,
+    `password` VARCHAR(255) NOT NULL,
+    `role` ENUM('admin','client','lawyer','hussier') NOT NULL,
+    `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
 
-ALTER TABLE `hussier` 
-ADD COLUMN `user_id` INT AFTER `id`;
+ALTER TABLE `lawyer`
+    ADD COLUMN `user_id` INT AFTER `id`;
 
-ALTER TABLE `lawyer` 
-MODIFY COLUMN `hourly_rate` DECIMAL(10,2) NOT NULL;
+ALTER TABLE `hussier`
+    ADD COLUMN `user_id` INT AFTER `id`;
+
+ALTER TABLE `lawyer`
+    MODIFY COLUMN `hourly_rate` DECIMAL(10,2) NOT NULL;
 
 ALTER TABLE `hussier` 
 MODIFY COLUMN `hourly_rate` DECIMAL(10,2) NOT NULL;

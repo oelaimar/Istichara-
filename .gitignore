@@ -1,1 +1,6 @@
 /vendor/
+.gitignore
+/docker/
+Dockerfile
+docker-compose.yml
+.idea

@@ -2,7 +2,7 @@
     "name": "youcode/istichara",
     "autoload": {
         "psr-4": {
-            "Istichara\\": "src/",
+            "Istichara\\": "./",
             "controllers\\": "controllers/",
             "models\\": "models/",
             "repositories\\": "repositories/",
@@ -22,6 +22,7 @@
     ],
     "require": {
         "phpmailer/phpmailer": "^7.0",
-        "twig/twig": "^3.22"
+        "twig/twig": "^3.22",
+        "ext-pdo": "*"
     }
 }

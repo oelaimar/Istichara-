@@ -1,5 +1,7 @@
 <?php
 
+namespace Istichara;
+
 use controllers\DashboardController;
 use controllers\PersonneController;
 use controllers\VilleController;
@@ -15,7 +17,8 @@ class Router{
         "personne"=>PersonneController::class,
         "ville" =>VilleController::class,
         "home"=> HomeController::class,
-        "search" => SearchController::class
+        "search" => SearchController::class,
+        "appointment" => \controllers\AppointmentController::class
     ];
 
     public static function dispatch(){
