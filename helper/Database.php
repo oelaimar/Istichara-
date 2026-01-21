@@ -14,7 +14,7 @@ class Database implements DatabaseInterface{
     public static function getConnection()
     {
         if(self::$conn===null){
-            $dsn='pgsql:host=' . self::$host . ';dbname=' . self::$db_name . ';port=' . ';sslmode=require';
+            $dsn='pgsql:host=' . self::$host . ';dbname=' . self::$db_name . ';port=5432' . ';sslmode=require';
             self::$conn= new PDO($dsn,self::$user,self::$mdp,[
                 PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE=> PDO::FETCH_ASSOC
