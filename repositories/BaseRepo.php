@@ -3,7 +3,8 @@ namespace repositories;
 use helper\Database;
 use PDO;
 
-abstract class BaseRepo{
+abstract class BaseRepo
+{
     protected string $table;
     protected PDO $conn;
 
@@ -19,8 +20,8 @@ abstract class BaseRepo{
     // =====CREATE=====
     public function create(array $data):bool
     {
-        $columns=implode(",",array_keys($data));
-        $placeholders=":" . implode(",:",array_keys($data));
+        $columns = implode(",",array_keys($data));
+        $placeholders = ":" . implode(",:",array_keys($data));
 
         $stmt=$this->conn->prepare("INSERT INTO {$this->table}($columns) VALUES($placeholders)");
         return $stmt->execute($data);
