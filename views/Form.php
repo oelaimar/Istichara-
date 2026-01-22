@@ -2,7 +2,8 @@
 <div class="register-container">
     <h2>Créer un compte</h2>
 
-    <form action="index.php?controller=personne&action=create" method="POST">
+
+    <form action="index.php?controller=personne&action=create" method="POST" enctype="multipart/form-data">
 
         <div class="form-row">
             <div class="form-group">
@@ -13,6 +14,11 @@
             <div class="form-group">
                 <label>Email</label>
                 <input type="email" name="email" placeholder="exemple@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>Mot de passe</label>
+                <input type="password" name="password" placeholder="Mot de passe" required>
             </div>
 
             <div class="form-group">
@@ -28,6 +34,11 @@
                     <option value=<?= htmlspecialchars($ville['id'])?>> <?= htmlspecialchars($ville['name'])?></option>
                     <?php } ?>
                 </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Document (Justificatif)</label>
+                <input type="file" name="document" accept=".pdf,.jpg,.png" required>
             </div>
         </div>
 
@@ -45,7 +56,6 @@
             </label>
         </div>
 
-        <!-- Zone dynamique -->
         <div id="extraFields" class="extra-fields"></div>
 
         <button type="submit" name="submit" class="submit-btn">

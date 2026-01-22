@@ -24,27 +24,107 @@ body {
 /* HEADER */
 header {
     background: var(--blue);
-    color: var(--white);
-    padding: 1rem 5%;
+    padding: 0.75rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--gold);
     letter-spacing: -0.025em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 nav a {
     color: var(--gray);
-    margin-left: 2rem;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: all 0.2s;
     font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    margin-left: 0;
+}
+
+nav a:not(.btn-nav):hover {
+    color: var(--white);
+}
+
+nav a:not(.btn-nav)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--gold);
+    transition: width 0.3s;
+}
+
+nav a:not(.btn-nav):hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Header Specific Buttons */
+.btn-nav {
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.btn-nav.ghost {
+    color: var(--white);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-nav.ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--white);
+}
+
+.btn-nav.primary {
+    background: var(--gold);
+    color: var(--blue);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-nav.primary:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px -1px rgba(0, 0, 0, 0.3);
+}
+
+.search-icon {
+    color: var(--gray);
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.search-icon:hover {
+    color: var(--gold);
 }
 
 /* Modal Booking */
@@ -56,7 +136,7 @@ nav a {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
 }
 
@@ -73,8 +153,15 @@ nav a {
 }
 
 @keyframes modalSlide {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .close {
@@ -84,6 +171,11 @@ nav a {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text);
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: var(--gold);
 }
 
 .booking-btn {
@@ -122,11 +214,7 @@ nav a {
     border: 1px solid #EF4444;
 }
 
-nav a:hover {
-    color: var(--gold);
-}
-
-/* BUTTON */
+/* Common Buttons */
 .btn {
     background: var(--gold);
     color: var(--blue);
@@ -143,7 +231,7 @@ nav a:hover {
 
 .btn:hover {
     filter: brightness(110%);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 /* HERO */
@@ -575,4 +663,49 @@ tr:hover td {
     font-size: 0.85rem;
     color: #6B7280;
     font-weight: 500;
+}
+
+/* Reusing dashboard styles + specific ones for ValidationCompte */
+.badge-avocat {
+    background: #EBF8FF;
+    color: #2B6CB0;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.badge-hussier {
+    background: #FAF5FF;
+    color: #805AD5;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.btn-doc {
+    color: #3182CE;
+    text-decoration: underline;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-approve {
+    background: #48BB78;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-reject {
+    background: #F56565;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
 }
