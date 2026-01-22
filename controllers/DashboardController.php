@@ -60,7 +60,7 @@ class DashboardController {
 
         // 4. Autres données
         $topAvocats = $avocatRepo->getTopByExperience(3);
-        
+
         require_once __DIR__ . '/../views/Dashboard.php';  
     }
 }

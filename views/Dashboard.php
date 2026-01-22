@@ -12,7 +12,7 @@
             <div class="stat-card revenue">
                 <div class="stat-info">
                     <span class="stat-label">Chiffre d'affaires</span>
-                    <div class="stat-value"><?= htmlspecialchars($totalChiffre) ?> <span class="currency">DH</span>
+                    <div class="stat-value"><?= $totalChiffre ?? 0 ?> <span class="currency">DH</span>
                     </div>
                 </div>
                 <div class="stat-icon">💰</div>
