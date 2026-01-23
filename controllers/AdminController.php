@@ -24,8 +24,7 @@ class AdminController {
             $result = $validerCompte->validerProfessionnel($id);
             
             if ($result !== true) {
-                // Handle error if needed, for now just redirect or echo error (could be improved)
-                // echo "Error: " . $result; 
+                echo "Error: " . $result; 
             }
             
             header('Location: index.php?controller=admin&action=validationCompte');
