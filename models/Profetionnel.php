@@ -8,6 +8,7 @@ class Profetionnel extends Personne{
                             private float $hourlyRate,
                             private int $expYears,
                             private string $document,
+                            private int   $numviwers,
                             ?int $id = null)
     {
         parent::__construct($name, $phone, $id);
@@ -27,6 +28,10 @@ class Profetionnel extends Personne{
     {
         $this->document=$document;
     }
+        public function setNumviwers($numviwers) : void {
+        $this->numviwers=$numviwers;
+        
+    }
 
     public function getExpYears(): int {
         return $this->expYears;
@@ -38,5 +43,8 @@ class Profetionnel extends Personne{
 
     public function getDocument(): string {
         return $this->document;
+    }
+        public function getNumviwers() : int {
+        return $this->numviwers;
     }
 }

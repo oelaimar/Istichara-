@@ -3,6 +3,7 @@
 namespace repositories;
 
 use models\User;
+use models\Avocat;
 use helper\Database;
 use PDO;
 
@@ -13,8 +14,8 @@ class UserRepo{
         $this->conn = Database::getConnection();
     }
     public function create(User $user){
-        $sql = "INSERT INTO user(email, password, role)
-            VALUES(:email, :password, :role)";
+        $sql = 'INSERT INTO "user"(email, password, role)
+            VALUES(:email, :password, :role)';
         $stmt = $this->conn->prepare($sql);
         $result = $stmt->execute([
             ':email' => $user->getEmail(),
@@ -26,6 +27,13 @@ class UserRepo{
         return $user_id;
 
     }
+
+   public function findByEmail($email) {
+        $stmt = $this->conn->prepare("SELECT * FROM user WHERE email = :email");
+        $stmt->execute(['email' => $email]);
+        return $stmt->fetch();
+    }
+
 }
 
 

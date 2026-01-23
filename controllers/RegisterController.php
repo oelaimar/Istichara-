@@ -30,35 +30,35 @@ class RegisterController{
         }
         $conn = Database::getConnection();
 
-        $conn->beginTransaction();
-        try{
-            // create user
-            // $hashedPassword = password_hash($password, PASSWORD_DEFAULT); 
+        $conn = Database::getConnection();
+            // $sql = "INSERT INTO \"user\"(email, password, role) VALUES('$email', '$password', 'client')";
+            // $stmtS = $conn->prepare($sql);
+            // $result = $stmtS->execute();
+            // $user_id = $conn->lastInsertId();
+            
+            // $sql = "INSERT INTO \"client\"(user_id, name, phone, city_id) VALUES('$user_id', '$name', '$phone', '$city')";
+            // $stmt = $conn->prepare($sql);
+            // $result = $stmt->execute();
+
+
+            // // create user
+            // // $hashedPassword = password_hash($password, PASSWORD_DEFAULT); 
             $user = new User($email, $password, 'client');
             $userRepo = new UserRepo();
             $user_id = $userRepo->create($user);
-            
+            // echo $user_id;
             if (!$user_id) {
-                    throw new \Exception("Erreur lors de la création du compte");
+                    throw new \Exception("erreur lors de la creation du compte");
             }
-
-            //create Client
-            $client = new Client($user_id, $name, $email, $phone, $city);
+            // //create Client
+            $client = new Client($user_id, $name, $phone, $city);
             $clientRepo = new ClientRepo();
+            var_dump($user_id);
             $clientcreated = $clientRepo->create($client);
 
-            $conn->commit();
-
-            header("Location: /istishara/login");
-            exit;
-
-        }catch (\Exception $e){
-            $conn->rollback();
-            $_SESSION['error'] = "Erreur lors de l'inscription. Cet email est peut-être déjà utilisé.";
-            header("Location: /istishara/register/client");
-            exit;
-        }
     }
+
+    
 }
 
 ?>

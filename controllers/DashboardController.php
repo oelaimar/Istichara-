@@ -18,7 +18,7 @@ class DashboardController {
         $totalDemand = $statistiquesRepo->getTotalDemand();
         $totalAvocats = $avocatRepo->count();
         $totalHuissiers = $hussierRepo->count(); 
-
+        $totalClients=$statistiquesRepo->countClient();
         // 2. Préparation de TOUTES les données par ville
         $avocatsByVille = $avocatRepo->getByVille();
         $huissiersByVille = $hussierRepo->getByVille();
@@ -60,7 +60,7 @@ class DashboardController {
 
         // 4. Autres données
         $topAvocats = $avocatRepo->getTopByExperience(3);
-        
+
         require_once __DIR__ . '/../views/Dashboard.php';  
     }
 }

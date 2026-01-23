@@ -6,6 +6,7 @@ use repositories\AvocatRepo;
 use repositories\HussierRepo;
 use repositories\UserRepo;
 use helper\Database;
+use models\User;
 
 class AdminController {
 

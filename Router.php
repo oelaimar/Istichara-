@@ -4,6 +4,7 @@ use controllers\DashboardController;
 use controllers\PersonneController;
 use controllers\VilleController;
 use controllers\AvocatController;
+use controllers\DemandeController;
 use controllers\HussierController;
 use controllers\HomeController;
 use controllers\SearchController;
@@ -20,8 +21,9 @@ class Router{
         "home"=> HomeController::class,
         "search" => SearchController::class,
         "register" => RegisterController::class,
-        "admin" => AdminController::class
-    ];
+        "demande" => DemandeController::class,
+        "admin" => AdminController::class,
+     ];
 
     public static function dispatch(){
         $controllerKey=$_GET["controller"] ?? 'home'; 
