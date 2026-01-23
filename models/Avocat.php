@@ -11,6 +11,7 @@ enum Specialisation:string
     case Affaires="affaires";
 }
 class Avocat extends Profetionnel{
+    
     public function __construct(string $name, string $phone, float $hourlyRate, int $expYears, string $document,private Specialisation $specialisation,private bool $consultationOnline, ?int $id = null)
     {
         parent::__construct($name, $phone, $hourlyRate, $expYears, $document, $id);
