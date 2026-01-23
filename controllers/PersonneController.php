@@ -46,7 +46,7 @@ class PersonneController{
                 } elseif ($role === 'hussier') {
                     $data['years_of_experiences'] = (int) $_POST['expYears'];
                     $data['hourly_rate'] = (float) $_POST['hourlyRate'];
-                    $data['type'] = $_POST['type'];
+                    $data['role'] = $_POST['role'];
                     
                     // insertion en huissier
                     $repo = new HussierRepo();
@@ -72,4 +72,4 @@ class PersonneController{
             exit;
         }
     }
-}   
+}
