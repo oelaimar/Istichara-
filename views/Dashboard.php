@@ -31,8 +31,8 @@
 
             <div class="stat-card clients">
                 <div class="stat-info">
-                    <span class="stat-label">Clients uniques</span>
-                    <div class="stat-value">18</div>
+                    <span class="stat-label">Clients </span>
+                    <div class="stat-value"><?= !empty($totalClients) ? $totalClients : "0" ?></div>
                 </div>
                 <div class="stat-icon">👤</div>
             </div>
