@@ -62,4 +62,6 @@ abstract class BaseRepo{
         $result=$stmt->execute($data);
         return $result;
     }
+
+
 }

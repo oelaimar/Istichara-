@@ -7,6 +7,7 @@ use controllers\AvocatController;
 use controllers\HussierController;
 use controllers\HomeController;
 use controllers\SearchController;
+
 class Router{
     private static array $controllers=[
         "avocat" => AvocatController::class,

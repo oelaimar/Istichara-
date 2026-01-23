@@ -50,6 +50,11 @@ use models\Personne;
                         <p><strong>Expérience:</strong> <?= $avocat['years_of_experiences'] ?> ans</p>
                         <p><strong>Spécialité:</strong> <?= htmlspecialchars($avocat['specialization']) ?></p>
                         <p><strong>Ville:</strong> <?= htmlspecialchars($avocat['city_name']) ?></p>
+                        <a href="index.php?controller=avocat&action=showprofile&id=<?= $avocat['id'] ?>">
+    Show profile
+</a>
+
+
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -66,6 +71,10 @@ use models\Personne;
                         <h3><?= htmlspecialchars($huissier['name']) ?></h3>
                         <p><strong>Expérience:</strong> <?= $huissier['years_of_experiences'] ?> ans</p>
                         <p><strong>Ville:</strong> <?= htmlspecialchars($huissier['city_name']) ?></p>
+                        <a href="index.php?controller=hussier&action=showprofile&id=<?= $huissier['id'] ?>">
+                       how profile
+                     </a>
+
                     </div>
                 <?php endforeach; ?>
             </div>
