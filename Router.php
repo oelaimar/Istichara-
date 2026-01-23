@@ -9,6 +9,8 @@ use controllers\HussierController;
 use controllers\HomeController;
 use controllers\SearchController;
 use controllers\RegisterController;
+use controllers\AdminController;
+
 class Router{
     private static array $controllers=[
         "avocat" => AvocatController::class,
@@ -20,6 +22,8 @@ class Router{
         "search" => SearchController::class,
         "register" => RegisterController::class,
         "demande" => DemandeController::class
+        "admin" => AdminController::class,
+        "home" =>HomeController::class,
     ];
 
     public static function dispatch(){
