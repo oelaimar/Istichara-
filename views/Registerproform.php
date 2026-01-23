@@ -580,7 +580,7 @@ $villes = $villeRepo->getVilleNames();
                             <div>Cliquez pour uploader vos documents</div>
                             <small style="color: #999;">PDF, JPG, PNG (Max 5MB chacun)</small>
                         </div>
-                        <input type="file" id="diplomes" name="diplomes" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                        <input type="file" id="diplomes" name="diplomes[]" accept=".pdf,.jpg,.jpeg,.png" multiple>
                         <div class="file-name" id="diplomes_name"></div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ISTICHARA</title>
-<link rel="stylesheet" href="./public/style.css">
+<link rel="stylesheet" href="../public/style.css">
 <script src="../public/script.js" defer></script>
 </head>
 <body>

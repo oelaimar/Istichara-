@@ -45,8 +45,8 @@ class Demande extends Profetionnel{
         return $this->specialization;
     }
 
-    public function isConsultationOnline(){
-        return $this->consultationOnline;
+    public function isConsultationOnline() {
+        return $this->consultationOnline ? 1 : 0;
     }
 
     public function setType($type)

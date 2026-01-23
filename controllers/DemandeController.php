@@ -21,7 +21,6 @@ class DemandeController{
     }
 
     public function Registerpro(){
-        var_dump($_FILES["diplomes"]);
         if(isset($_POST['submit'])){
             $type = $_POST['type'];
 
@@ -33,17 +32,22 @@ class DemandeController{
                 $experience = $_POST['experience'];
                 $tarif = $_POST['tarif'];
                 $specialization = $_POST['specialization'];
-                $consultation_online = $_POST['consultation_online'];
+                $consultation_online = $_POST['consultation_online'] == '1' ? 1 : 0;
                 $password = $_POST['password'];
                 $diplomes = $_FILES["diplomes"];
 
                 // save file
 
-                $url = "";
+                $url = $this->uploadDocuments($diplomes);
+                if (!$url) {
+                $_SESSION['error'] = "Erreur lors de l'upload du document";
+                exit;
+                }
 
-                $client = new Demande($name, $email, $phone, $tarif, $experience, $url, 'pending', $city, $specialization, $consultation_online);
+                $client = new Demande($name, $email, $phone, $tarif, $experience, $url, 'pending', $city, $specialization, $consultation_online, null);
                 $clientRepo = new DemandeRepo();
                 $clientcreated = $clientRepo->createAvocat($client);
+                
                 header("location: /../views/home.php");
                 exit;
 
@@ -61,16 +65,45 @@ class DemandeController{
 
                 // save file
 
-                $url = "";
+                $url = $this->uploadDocuments($diplomes);
+                if (!$url) {
+                $_SESSION['error'] = "Erreur lors de l'upload du document";
+                exit;
+                }
 
-                $client = new Demande($name, $email, $phone, $tarif, $experience, $url, 'pending', $city, $type_actes);
+                $client = new Demande($name, $email, $phone, $tarif, $experience, $url, 'pending', $city,null, null, $type_actes);
                 $clientRepo = new DemandeRepo();
                 $clientcreated = $clientRepo->createHuissier($client);
                 header("location: /../views/home.php");
                 exit;
             }
         }
+
+        
     }
+    private function uploadDocuments($files) {
+    $uploadDir = __DIR__ . '/../public/documents/';
+    
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+    
+    if (!isset($files['name'][0]) || $files['error'][0] !== 0) {
+        return false;
+    }
+    
+    $extension = pathinfo($files['name'][0], PATHINFO_EXTENSION);
+    $fileName = time() . '_' . uniqid() . '.' . $extension;
+    
+    $tmpPath = $files['tmp_name'][0];
+    $finalPath = $uploadDir . $fileName;
+    
+    if (move_uploaded_file($tmpPath, $finalPath)) {
+        return $fileName;
+    }
+    
+    return false;
+}
 }
 
 

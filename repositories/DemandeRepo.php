@@ -14,7 +14,7 @@ class DemandeRepo{
     }
 
     public function createAvocat(Demande $avocat){
-        $sql = 'INSERT INTO "demande" (name, email, phone, years_of_experiences, hourly_rate, specialization, type, consultation_online, city_id, document, status)
+        $sql = 'INSERT INTO "demande" (name, email, phone, years_of_experiences, hourly_rate, specialization, consultation_online, city_id, document, status)
             VALUES(:name, :email, :phone, :years_of_experiences, :hourly_rate, :specialization, :consultation_online, :city_id, :document, :status) RETURNING id';
         $stmt = $this->conn->prepare($sql);
         $result = $stmt->execute([
@@ -33,7 +33,7 @@ class DemandeRepo{
     }
 
     public function createHuissier(Demande $huissier){
-        $sql = 'INSERT INTO "demande" (name, email, phone, years_of_experiences, hourly_rate, specialization, type, consultation_online, city_id, document, status)
+        $sql = 'INSERT INTO "demande" (name, email, phone, years_of_experiences, hourly_rate, type, city_id, document, status)
             VALUES(:name, :email, :phone, :years_of_experiences, :hourly_rate, :type, :city_id, :document, :status) RETURNING id';
         $stmt = $this->conn->prepare($sql);
         $result = $stmt->execute([
