@@ -6,7 +6,10 @@ use helper\Database;
 use PDO;
 class StatistiquesRepo extends BaseRepo{
     public function getTotal(){
-         $stmt = $this->conn->query("SELECT (SELECT SUM(hourly_rate)FROM lawyer)+(SELECT SUM(hourly_rate) FROM hussier) AS total_chiffre");
+         $stmt = $this->conn->query("SELECT 
+            (SELECT COALESCE(SUM(hourly_rate), 0) FROM lawyer) + 
+            (SELECT COALESCE(SUM(hourly_rate), 0) FROM hussier) 
+            AS total_chiffre");
         return $stmt->fetch()['total_chiffre'];
     }
 

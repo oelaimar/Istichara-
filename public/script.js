@@ -1,12 +1,11 @@
-const div=document.getElementById("extraFields");
-const avocat=document.getElementById("avocat");
-const hussier=document.getElementById("hussier");
+const div = document.getElementById("extraFields");
+const avocat = document.getElementById("avocat");
+const hussier = document.getElementById("hussier");
 
-avocat.addEventListener("click",()=>{
-
-    const avocatDiv=document.createElement('div');
+avocat.addEventListener("click", () => {
+    const avocatDiv = document.createElement('div');
     div.innerHTML = "";
-    avocatDiv.innerHTML=`
+    avocatDiv.innerHTML = `
     
         <div class="extra-grid">
             <div class="extra-group">
@@ -23,10 +22,10 @@ avocat.addEventListener("click",()=>{
                 <label>Spécialisation</label>
                 <select name="specialisation" required>
                     <option value="">-- Choisir --</option>
-                    <option value="droit_penal">Droit pénal</option>
-                    <option value="civile">Droit civil</option>
-                    <option value="famille">Droit de la famille</option>
-                    <option value="affaires">Droit des affaires</option>
+                    <option value="Droit pénal">Droit pénal</option>
+                    <option value="Civil">Droit civil</option>
+                    <option value="Famille">Droit de la famille</option>
+                    <option value="Affaires">Droit des affaires</option>
                 </select>
             </div>
 
@@ -41,11 +40,10 @@ avocat.addEventListener("click",()=>{
 });
 
 
-hussier.addEventListener("click",()=>{
-
-    const hussierDiv=document.createElement('div');
+hussier.addEventListener("click", () => {
+    const hussierDiv = document.createElement('div');
     div.innerHTML = "";
-    hussierDiv.innerHTML=`
+    hussierDiv.innerHTML = `
     
         <div class="extra-grid">
             <div class="extra-group">
@@ -62,9 +60,9 @@ hussier.addEventListener("click",()=>{
                 <label>Type</label>
                 <select name="type" required>
                     <option value="">-- Choisir --</option>
-                    <option value="signification">Signification</option>
-                    <option value="execution">Execution</option>
-                    <option value="constats">Constats</option>
+                    <option value="Signification">Signification</option>
+                    <option value="Exécution">Execution</option>
+                    <option value="Constats">Constats</option>
                 </select>
             </div>
         </div>
