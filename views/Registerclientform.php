@@ -2,8 +2,7 @@
 <div class="register-container">
     <h2>Créer un compte</h2>
 
-
-    <form action="index.php?controller=personne&action=create" method="POST" enctype="multipart/form-data">
+    <form action="index.php?controller=register&action=Registerclient" method="POST">
 
         <div class="form-row">
             <div class="form-group">
@@ -17,8 +16,8 @@
             </div>
 
             <div class="form-group">
-                <label>Mot de passe</label>
-                <input type="password" name="password" placeholder="Mot de passe" required>
+                <label>Password</label>
+                <input type="password" name="password" required>
             </div>
 
             <div class="form-group">
@@ -35,27 +34,9 @@
                     <?php } ?>
                 </select>
             </div>
-            
-            <div class="form-group">
-                <label>Document (Justificatif)</label>
-                <input type="file" name="document" accept=".pdf,.jpg,.png" required>
-            </div>
         </div>
 
-        <label class="section-label">Type d'utilisateur</label>
-
-        <div class="role-row">
-            <label id="avocatLabel" class="role-card">
-                <input id="avocat" type="radio" name="role" value="avocat" required>
-                ⚖️ Avocat
-            </label>
-
-            <label id="hussierLabel" class="role-card">
-                <input id="hussier" type="radio" name="role" value="hussier" required>
-                📄 Huissier
-            </label>
-        </div>
-
+        <!-- Zone dynamique -->
         <div id="extraFields" class="extra-fields"></div>
 
         <button type="submit" name="submit" class="submit-btn">

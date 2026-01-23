@@ -4,9 +4,12 @@ use controllers\DashboardController;
 use controllers\PersonneController;
 use controllers\VilleController;
 use controllers\AvocatController;
+use controllers\DemandeController;
 use controllers\HussierController;
 use controllers\HomeController;
 use controllers\SearchController;
+use controllers\RegisterController;
+use controllers\AdminController;
 
 class Router{
     private static array $controllers=[
@@ -16,7 +19,11 @@ class Router{
         "personne"=>PersonneController::class,
         "ville" =>VilleController::class,
         "home"=> HomeController::class,
-        "search" => SearchController::class
+        "search" => SearchController::class,
+        "register" => RegisterController::class,
+        "demande" => DemandeController::class
+        "admin" => AdminController::class,
+        "home" =>HomeController::class,
     ];
 
     public static function dispatch(){

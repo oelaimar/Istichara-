@@ -106,3 +106,7 @@ ADD CONSTRAINT `fk_hussier_user` FOREIGN KEY (`user_id`) REFERENCES `user`(`id`)
 
 ALTER TABLE `city` 
 MODIFY COLUMN `id` INT NOT NULL AUTO_INCREMENT;    
+
+
+ALTER TABLE lawyer
+ADD COLUMN Viewers int;
