@@ -1,11 +1,12 @@
-const div = document.getElementById("extraFields");
-const avocat = document.getElementById("avocat");
-const hussier = document.getElementById("hussier");
+const div=document.getElementById("extraFields");
+const avocat=document.getElementById("avocat");
+const hussier=document.getElementById("hussier");
 
-avocat.addEventListener("click", () => {
-    const avocatDiv = document.createElement('div');
+avocat.addEventListener("click",()=>{
+
+    const avocatDiv=document.createElement('div');
     div.innerHTML = "";
-    avocatDiv.innerHTML = `
+    avocatDiv.innerHTML=`
     
         <div class="extra-grid">
             <div class="extra-group">
@@ -40,10 +41,11 @@ avocat.addEventListener("click", () => {
 });
 
 
-hussier.addEventListener("click", () => {
-    const hussierDiv = document.createElement('div');
+hussier.addEventListener("click",()=>{
+
+    const hussierDiv=document.createElement('div');
     div.innerHTML = "";
-    hussierDiv.innerHTML = `
+    hussierDiv.innerHTML=`
     
         <div class="extra-grid">
             <div class="extra-group">

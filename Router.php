@@ -24,7 +24,6 @@ class Router{
         "register" => RegisterController::class,
         "demande" => DemandeController::class,
         "admin" => AdminController::class,
-        "home" =>HomeController::class,
         "login"=>LoginController::class
     ];
 

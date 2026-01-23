@@ -17,4 +17,9 @@ class StatistiquesRepo extends BaseRepo{
         $stmt = $this->conn->query("SELECT COUNT(*)AS total_demand FROM demande ");
         return $stmt->fetch()['total_demand'];
     }
+
+    public function countClient(){
+        $stmt = $this->conn->query("SELECT COUNT(*) AS totalClient FROM client ");
+        return $stmt->fetch()['totalClient'];
+    }
 }
