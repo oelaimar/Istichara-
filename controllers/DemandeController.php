@@ -22,9 +22,9 @@ class DemandeController{
 
     public function Registerpro(){
         if(isset($_POST['submit'])){
-            $type = $_POST['type'];
+            $role = $_POST['role'];
 
-            if(strtolower($type) === 'avocat'){
+            if(strtolower($role) === 'avocat'){
                 $name = $_POST['name'];
                 $email = $_POST['email'];
                 $phone = $_POST['phone'];
@@ -44,15 +44,12 @@ class DemandeController{
                 exit;
                 }
 
-                $client = new Demande($name, $email, $phone, $tarif, $experience, $url, 'pending', $city, $specialization, $consultation_online, null);
+                $client = new Demande($name, $email, $password, $phone, $tarif, $experience, $url, 'pending', $city, $specialization, $consultation_online, null);
                 $clientRepo = new DemandeRepo();
                 $clientcreated = $clientRepo->createAvocat($client);
-                
-                header("location: /../views/home.php");
-                exit;
 
 
-            }elseif(strtolower($type) === 'huissier'){
+            }elseif(strtolower($role) === 'huissier'){
                 $name = $_POST['name'];
                 $email = $_POST['email'];
                 $phone = $_POST['phone'];
@@ -71,12 +68,12 @@ class DemandeController{
                 exit;
                 }
 
-                $client = new Demande($name, $email, $phone, $tarif, $experience, $url, 'pending', $city,null, null, $type_actes);
+                $client = new Demande($name, $email, $password, $phone, $tarif, $experience, $url, 'pending', $city,null, null, $type_actes);
                 $clientRepo = new DemandeRepo();
                 $clientcreated = $clientRepo->createHuissier($client);
                 header("location: /../views/home.php");
-                exit;
             }
+            header("location: index.php?controller=home&action=home");
         }
 
         

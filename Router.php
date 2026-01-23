@@ -10,6 +10,7 @@ use controllers\HomeController;
 use controllers\SearchController;
 use controllers\RegisterController;
 use controllers\AdminController;
+use controllers\LoginController;
 
 class Router{
     private static array $controllers=[
@@ -23,7 +24,8 @@ class Router{
         "register" => RegisterController::class,
         "demande" => DemandeController::class,
         "admin" => AdminController::class,
-     ];
+        "login"=>LoginController::class
+    ];
 
     public static function dispatch(){
         $controllerKey=$_GET["controller"] ?? 'home'; 
