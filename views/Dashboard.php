@@ -2,8 +2,11 @@
 
 <div class="dashboard-wrapper">
     <header class="dashboard-header">
-        <h1>Tableau de Bord Analytique</h1>
-        <p class="subtitle">Aperçu en temps réel des activités et performances</p>
+        <div>
+            <h1>Tableau de Bord Analytique</h1>
+            <p class="subtitle">Aperçu en temps réel des activités et performances</p>
+        </div>
+        <a href="index.php?controller=admin&action=validationCompte" class="btn-validate">📋 Valider Comptes</a>
     </header>
 
     <section class="stats-section">
@@ -132,12 +135,28 @@
 
     .dashboard-header {
         margin-bottom: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .dashboard-header h1 {
         font-size: 2rem;
         color: var(--primary-navy);
         margin-bottom: 5px;
+    }
+
+    .btn-validate {
+        background-color: var(--secondary-gold);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: opacity 0.3s;
+    }
+    .btn-validate:hover {
+        opacity: 0.9;
     }
 
     .subtitle {
