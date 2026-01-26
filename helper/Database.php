@@ -4,12 +4,12 @@ use interfaces\DatabaseInterface;
 use PDO;
 
 class Database implements DatabaseInterface{
-    private static string $host="ep-cold-mountain-ah25jfw1-pooler.c-3.us-east-1.aws.neon.tech";
-    private static string $db_name="Istichara";
-    private static string $user="neondb_owner";
-    private static string $mdp="npg_umhYVWbnKC90";
+    private static string $host = "ep-cold-mountain-ah25jfw1-pooler.c-3.us-east-1.aws.neon.tech";
+    private static string $db_name = "Istichara";
+    private static string $user = "neondb_owner";
+    private static string $mdp = "npg_umhYVWbnKC90";
 
-    private static  $conn=null;
+    private static $conn = null;
 
     public static function getConnection()
     {
@@ -18,7 +18,7 @@ class Database implements DatabaseInterface{
             self::$conn= new PDO($dsn,self::$user,self::$mdp,[
                 PDO::ATTR_ERRMODE=> PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE=> PDO::FETCH_ASSOC,
-                //PDO::ATTR_EMULATE_PREPARES => false
+                PDO::ATTR_EMULATE_PREPARES => false
                 //ATTR_DISABLE_PREPARES
 
 
@@ -27,8 +27,5 @@ class Database implements DatabaseInterface{
         }
       
         return self::$conn;
-
-        
     }
 }
-
