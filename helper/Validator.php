@@ -1,4 +1,5 @@
 <?php
+namespace helper;
 // validation du nom
 function validateName($name) {
     $name = trim($name);
@@ -134,4 +135,13 @@ function validateRoleSpecificData($data, $role) {
     return $errors;
 }
 
+class Validator{
+
+    public static function email($email) {
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                return "L'email n'est pas valide";
+            }
+            return null;
+        }
+}
 ?>

@@ -4,6 +4,9 @@ namespace controllers;
 
 use repositories\UserRepo;
 use models\User;
+use helper\Validator;
+use Validator as GlobalValidator;
+
 require_once __DIR__ . '/../helper/Validator.php';
 
 class LoginController{
@@ -17,7 +20,8 @@ class LoginController{
             $password = $_POST['password'];
             
             if(empty($email) || empty($password)){
-                $_SESSION['error'] = "Veuillez remplir tous les champs";
+                $emailerror = Validator::email($email);
+                echo "<script>alert('Veuillez remplir tous les champs')</script>";
                 header("Location: index.php?controller=login&action=loginForm");
                 exit;
             }
@@ -26,7 +30,6 @@ class LoginController{
 
             if(!$user){
                 $_SESSION['error'] = "Email ou mot de passe incorrect";
-                header("Location: index.php?controller=login&action=loginForm");
                 exit;
             }
             if($password !== $user['password']){
