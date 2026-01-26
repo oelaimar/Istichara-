@@ -11,8 +11,17 @@ class VilleRepo extends BaseRepo
 
     public function getVilleNames()
     {
+        $cacheKey = 'cities_names_list';
+        $cached = \helper\RedisHelper::get($cacheKey);
+
+        if ($cached) {
+            return $cached;
+        }
+
         $stmt = $this->conn->query("SELECT id, name FROM city");
-        return $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+        $data = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+        \helper\RedisHelper::set($cacheKey, $data, 3600);
+        return $data;
     }
 
     public function countVilles()
