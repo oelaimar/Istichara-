@@ -14,15 +14,16 @@ class UserRepo{
         $this->conn = Database::getConnection();
     }
     public function create(User $user){
-        $sql = "INSERT INTO \"user\"(email, password, role)
-            VALUES(:email, :password, :role)";
+        $sql = 'INSERT INTO "user"(email, password, role)
+            VALUES(:email, :password, :role) RETURNING id';
         $stmt = $this->conn->prepare($sql);
-        $result = $stmt->execute([
+        $stmt->execute([
             ':email' => $user->getEmail(),
             ':password' => $user->getPassword(),
             ':role' => $user->getRole(), 
         ]);
-        $user_id = $this->conn->lastInsertId();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user_id = $row['id'];
         $user->setId($user_id);
         return $user_id;
 

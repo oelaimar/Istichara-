@@ -25,6 +25,7 @@ class AdminController {
             
             if ($result !== true) {
                 echo "Error: " . $result; 
+                exit;
             }
             
             header('Location: index.php?controller=admin&action=validationCompte');
