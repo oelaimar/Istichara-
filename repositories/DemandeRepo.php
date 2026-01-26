@@ -1,19 +1,21 @@
 <?php
 namespace repositories;
+
+use models\Avocat;
 use models\Demande;
 use helper\Database;
 use PDO;
 
 class DemandeRepo  {
-    private $conn;
+    private PDO $conn;
 
     public function __construct() {
         $this->conn = Database::getConnection();
     }
 
     public function createAvocat(Demande $avocat){
-        $sql = 'INSERT INTO "demande" (name, email, phone, years_of_experiences, hourly_rate, specialization, consultation_online, city_id, document, status)
-            VALUES(:name, :email, :phone, :years_of_experiences, :hourly_rate, :specialization, :consultation_online, :city_id, :document, :status) RETURNING id';
+        $sql = 'INSERT INTO "demande" (name, email, phone, years_of_experiences, hourly_rate, specialization, consultation_online, city_id, document, status, password)
+            VALUES(:name, :email, :phone, :years_of_experiences, :hourly_rate, :specialization, :consultation_online, :city_id, :document, :status, :password) RETURNING id';
         $stmt = $this->conn->prepare($sql);
         $result = $stmt->execute([
             ':name' => $avocat->getName(),
@@ -25,14 +27,15 @@ class DemandeRepo  {
             ':consultation_online' => $avocat->isConsultationOnline(),
             ':city_id' => $avocat->getCityId(),
             ':document' => $avocat->getDocument(),
-            ':status' => 'pending', 
+            ':status' => $avocat->getStatus(),
+            ':password' => $avocat->getPassword(),
         ]);
         return $result;
     }
 
     public function createHuissier(Demande $huissier){
-        $sql = 'INSERT INTO "demande" (name, email, phone, years_of_experiences, hourly_rate, type, city_id, document, status)
-            VALUES(:name, :email, :phone, :years_of_experiences, :hourly_rate, :type, :city_id, :document, :status) RETURNING id';
+        $sql = 'INSERT INTO "demande" (name, email, phone, years_of_experiences, hourly_rate, type, city_id, document, status, password)
+            VALUES(:name, :email, :phone, :years_of_experiences, :hourly_rate, :type, :city_id, :document, :status, :password) RETURNING id';
         $stmt = $this->conn->prepare($sql);
         $result = $stmt->execute([
             ':name' => $huissier->getName(),
@@ -43,11 +46,11 @@ class DemandeRepo  {
             ':type' => $huissier->getType(),
             ':city_id' => $huissier->getCityId(),
             ':document' => $huissier->getDocument(),
-            ':status' => 'pending',
+            ':status' => $huissier->getStatus(),
+            ':password' => $huissier->getPassword(),
         ]);
         return $result;
     }
-
     public function getPending() {
         $stmt = $this->conn->prepare("SELECT * FROM demande WHERE status = 'pending'");
         $stmt->execute();
@@ -60,10 +63,14 @@ class DemandeRepo  {
                                'id' => $id
                               ]);
     }
-
+    
     public function findById($id) {
         $stmt = $this->conn->prepare("SELECT * FROM demande WHERE id = :id");
         $stmt->execute(['id' => $id]);
         return $stmt->fetch();
     }
 }
+
+
+
+?>

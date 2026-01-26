@@ -133,4 +133,5 @@ function validateRoleSpecificData($data, $role) {
 
     return $errors;
 }
+
 ?>

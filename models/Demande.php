@@ -7,16 +7,18 @@ class Demande extends Profetionnel{
     private ?bool $consultationOnline = null;
     private ?string $type = null;
     private string $email;
+    private string $password;
     private int $user_id;
     private int $city_id;
     private string $status;
-    public function __construct(string $name, string  $email,string $phone, float $hourlyRate, int $expYears, string $document,string $status, int $city_id,?string $specialization = null, ?bool $consultationOnline = null, ?string $type = null,  ?int $id = null)
+    public function __construct(string $name, string  $email, string $password, string $phone, float $hourlyRate, int $expYears, string $document,string $status, int $city_id,?string $specialization = null, ?bool $consultationOnline = null, ?string $type = null,  ?int $id = null)
     {
         parent::__construct($name, $phone, $hourlyRate, $expYears, $document, $id);
         $this->specialization = $specialization;
         $this->consultationOnline = $consultationOnline;
         $this->type = $type;
         $this->email = $email;
+        $this->password = $password;
         $this->status = $status;
         $this->city_id = $city_id;
     }
@@ -71,6 +73,14 @@ class Demande extends Profetionnel{
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+    public function getPassword(){
+        return $this->password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
     }
 }
 

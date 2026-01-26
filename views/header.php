@@ -27,7 +27,6 @@ if (session_status() === PHP_SESSION_NONE) {
     <a href="index.php?controller=appointment&action=manage" style="color: #60A5FA;">Espace Pro</a>
     <a href="index.php?controller=register&action=createClientForm">Sign up as client</a>
     <a href="index.php?controller=demande&action=createProForm">Sign up as Professional</a>
-    <a href="./LoginForm.php">Connexion</a>
     <a href="index.php?controller=search&action=index" class="search-icon" title="Rechercher">🔍</a>
   </nav>
   </nav>
@@ -38,7 +37,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <?php if (isset($_SESSION['user_id'])): ?>
         <a href="logout.php" class="btn-nav ghost">Déconnexion</a>
     <?php else: ?>
-        <a href="./LoginForm.php" class="btn-nav ghost">Connexion</a>
+        <a href="index.php?controller=login&action=loginForm" class="btn-nav ghost">Connexion</a>
         <a href="index.php?controller=personne&action=createForm" class="btn-nav primary">S'inscrire</a>
     <?php endif; ?>
   </div>

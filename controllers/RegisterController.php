@@ -53,9 +53,9 @@ class RegisterController{
             // //create Client
             $client = new Client($user_id, $name, $phone, $city);
             $clientRepo = new ClientRepo();
-            var_dump($user_id);
             $clientcreated = $clientRepo->create($client);
 
+            header("location: index.php?controller=home&action=home");
     }
 
     
