@@ -5,16 +5,15 @@ namespace models;
 
 enum Specialisation:string 
 {
-    case DroitPenal="droit_penal";
-    case Civile="civile";
-    case Famille="famille";
-    case Affaires="affaires";
+    case DroitPenal="Droit pénal";
+    case Civile="Civil";
+    case Famille="Famille";
+    case Affaires="Affaires";
 }
 class Avocat extends Profetionnel{
-    
-    public function __construct(string $name, string $phone, float $hourlyRate, int $expYears, string $document,private Specialisation $specialisation,private bool $consultationOnline, ?int $id = null)
+    public function __construct(string $name, string $phone, float $hourlyRate, int $expYears, string $document,int $numviwers,private Specialisation $specialisation,private bool $consultationOnline, ?int $id = null)
     {
-        parent::__construct($name, $phone, $hourlyRate, $expYears, $document, $id);
+        parent::__construct($name, $phone, $hourlyRate, $expYears, $document,$numviwers ,$id);
     }
 
     

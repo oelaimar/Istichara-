@@ -3,7 +3,6 @@ namespace repositories;
 
 use models\Avocat;
 use models\Demande;
-use models\Hussier;
 use helper\Database;
 use PDO;
 
