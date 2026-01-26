@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/Router.php';
 
 // definig base URL dynamically
 $scriptName = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));

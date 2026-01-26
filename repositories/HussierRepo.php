@@ -25,7 +25,7 @@ class HussierRepo extends BaseRepo{
         $sql = "SELECT hussier.*, city.name as city_name 
                 FROM hussier 
                 LEFT JOIN city ON hussier.city_id = city.id 
-                WHERE hussier.name LIKE :keyword";
+                WHERE hussier.name ILIKE :keyword";
         $params = [':keyword' => "%$keyword%"];
 
         if (!empty($cityId)) {

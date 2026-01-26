@@ -32,7 +32,7 @@ class AvocatRepo extends BaseRepo{
         $sql = "SELECT lawyer.*, city.name as city_name 
                 FROM lawyer 
                 LEFT JOIN city ON lawyer.city_id = city.id 
-                WHERE lawyer.name LIKE :keyword";
+                WHERE lawyer.name ILIKE :keyword";
         $params = [':keyword' => "%$keyword%"];
 
         if (!empty($cityId)) {
